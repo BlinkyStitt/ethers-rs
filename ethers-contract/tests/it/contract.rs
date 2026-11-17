@@ -717,7 +717,8 @@ async fn multicall_aggregate() {
     multicall
         .clear_calls()
         .add_call(get_value_reverting_call.clone(), false) // don't allow revert
-        .add_call(get_value_call.clone(), true); // true here will result in `tryAggregate(false, ...)`
+        .add_call(get_value_call.clone(), true); // true here will result in `tryAggregate(false,
+                                                 // ...)`
     assert!(matches!(
         multicall.call::<(String, String)>().await.unwrap_err(),
         MulticallError::IllegalRevert

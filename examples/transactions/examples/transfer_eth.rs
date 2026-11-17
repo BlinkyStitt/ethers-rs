@@ -16,7 +16,9 @@ async fn main() -> Result<()> {
     let to = accounts[1];
 
     // craft the tx
-    let tx = TransactionRequest::new().to(to).value(1000).from(from); // specify the `from` field so that the client knows which account to use
+    let tx = TransactionRequest::new().to(to).value(1000).from(from); // specify the `from` field so
+                                                                      // that the client knows which
+                                                                      // account to use
 
     let balance_before = provider.get_balance(from, None).await?;
     let nonce1 = provider.get_transaction_count(from, None).await?;
